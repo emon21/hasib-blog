@@ -1,0 +1,1 @@
+home {{ Auth::user->name }}
