@@ -152,4 +152,6 @@ Route::get('/admin/contact/contactlist', [AdminController::class, 'contactlist']
 Route::post('/contactprocess', [WebsiteController::class, 'contactprocess']);
 
 
+//Relationship Route
+Route::get('/animal',[WebsiteController::class,'animal']);
 // Contact Route List  End

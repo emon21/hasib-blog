@@ -17,11 +17,9 @@ class CreatePortfoliosTable extends Migration
             $table->id();
             $table->string('category_id');
             $table->string('portfolio_name');
+            $table->string('slug');
             $table->text('portfolio_description');
-            $table->string('portfolio_picture')->default('portfolio/default.jpg');
-
-            $table->text('cat_id');
-
+            $table->string('portfolio_picture');
             $table->timestamps();
         });
     }

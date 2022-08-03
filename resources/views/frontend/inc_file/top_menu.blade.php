@@ -16,7 +16,7 @@
                                 <div class="navbar-brand">
                                     <a class="logo-black" href="{{ url('/') }}"><img src="{{ asset('frontend') }}/images/logo.png" alt="">
                                     </a>
-                                    <a class="logo-white" href="index.html"><img src="{{ asset('frontend') }}/images/logo-white.png" alt="">
+                                    <a class="logo-white" href="{{ url('/') }}"><img src="{{ asset('frontend') }}/images/logo-white.png" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -43,8 +43,11 @@
                                     <li>
                                         <a class="page-scroll" href="#contact">Contact</a>
                                     </li>
+                                    {{--  <li>
+                                        <a class="page-scroll {{ url('/blog') ? 'active' : ''  }}" href="{{ url('/blog')}}">Blog</a>
+                                    </li>  --}}
                                     <li>
-                                        <a class="link" href="{{ url('/blog')}}">Blog</a>
+                                        <a class="link " href="{{ url('/blog')}}">Blog</a>
                                     </li>
                                 </ul>
                             </div>

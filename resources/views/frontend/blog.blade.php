@@ -29,11 +29,9 @@
               </div>
           </div>
 
-
           <div class="container">
-
                             <div class="row">
-                                @foreach($bloglist as $key => $list)
+                                @foreach($bloglist as $list)
 
                                 <div class="col-md-4 col-sm-6 col-xs-6 full-wd600">
                                     <div class="serviceBox wow fadeInUp" data-wow-duration="1s" data-wow-delay="0s">
@@ -43,12 +41,18 @@
                                         <h3 class="title">{{ $list->category_name }}</h3>
                                         <a href="{{ url('bloglist',$list->id) }}" class="btn btn-warning">Read More</a>
                                         <p class="description">
-                                          {{ $cntlist->count() }}
+                                          {{--  {{ $list->posts()->count() }}  --}}
+                                          {{--  $item->products()->count()  --}}
+                                           <td>{{$list->posts ? $list->posts()->count() : 'N/A'}}</td>
                                         </p>
-                                        <!-- <span class="number">{{ $key + 1 }}</span> -->
+                                        <!-- <span class="number">{{ $loop->index }}</span> -->
                                     </div>
                                 </div>
                                     @endforeach
+
+                                      {{--  @if( $category->posts->count() )
+   //your @foreach code here
+   @endif  --}}
 
                             </div>
                         </div>

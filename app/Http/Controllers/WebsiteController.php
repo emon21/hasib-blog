@@ -14,19 +14,48 @@ use App\Models\Client_review;
 use App\Models\Contact;
 use App\Models\Menu;
 use App\Models\User;
+use App\Models\Client;
+use App\Models\Overview;
+use App\Models\Social_Link;
+use App\Models\Animal;
+use App\Models\BodyPart;
 
 use Carbon\carbon;
 
 
 class WebsiteController extends Controller
 {
-    //
+    //relation ship
+    public function animal()
+    {
+        $animals = Animal::with('bodyParts')->get();
+        // foreach($qnimal as $list){
+        //    // echo $list->bodyParts->name;
+
+        //     foreach($list->body_parts as $value){
+        //         echo $value;
+
+        //     }
+        // }
+
+     return view('frontend/animal',compact('animals'));
+
+    }
+
     public function index()
     {
-        $about_list = About::all();
-        $about_skill = About_skill::all();
-        $service = Service::all();
-        return view('frontend/index',compact('about_list','about_skill','service'));
+        // $about_list = About::all();
+        // $about_skill = About_skill::all();
+        // $service = Service::all();
+        // $client = Client::all();
+        // $overview = Overview::all();
+        $data['abouts'] = About::all();
+        $data['about_skills'] = About_skill::all();
+        $data['services'] = Service::all();
+        $data['clients'] = Client::all();
+        $data['overviews'] = Overview::first();
+        $data['social__links'] = Social_Link::all();
+        return view('frontend/index',$data);
     }
 
     public function contactprocess(Request $req)
@@ -49,8 +78,11 @@ class WebsiteController extends Controller
       // $bloglist = Blog::simplePaginate(4);
       // $cat_id = $req->catid;
 
-      $bloglist = Blog_Category::all();
+      $bloglist = Blog_Category::withCount('posts')->get();
+
       $cntlist = Blog::all();
+
+     // return $bloglist;
       // $post_list = Blog::where('cat_id',$cat_id)->count();
 
       return view('frontend/blog',compact('bloglist','cntlist'));

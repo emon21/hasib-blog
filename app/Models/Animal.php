@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Blog;
 
-class Blog_Category extends Model
+
+class Animal extends Model
 {
     use HasFactory;
 
-    public function posts()
+    public function bodyParts()
     {
-        return $this->hasMany(Blog::class, 'cat_id');
+        return $this->hasMany('App\Models\BodyPart');
     }
 }
